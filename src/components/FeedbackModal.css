@@ -11,13 +11,13 @@
 .star-btn {
   font-size: 36px;
   background: transparent;
-  color: #d1d5db;
+  color: var(--color-star-muted);
   transition: color 0.15s, transform 0.15s;
   line-height: 1;
 }
 
 .star-btn.active {
-  color: #f59e0b;
+  color: var(--color-star);
 }
 
 .star-btn:hover {

@@ -156,11 +156,11 @@
 }
 
 .call-menu-item.danger {
-  color: #dc2626;
+  color: var(--color-danger);
 }
 
 .call-menu-item.danger:hover {
-  background: #fef2f2;
+  background: var(--color-danger-bg);
 }
 
 /* Empty state */

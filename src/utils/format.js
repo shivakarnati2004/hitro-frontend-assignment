@@ -3,8 +3,9 @@
  */
 export function formatDuration(seconds) {
   if (!seconds || seconds === 0) return '0m 0sec';
-  const mins = Math.floor(seconds / 60);
-  const secs = seconds % 60;
+  const total = Math.round(seconds);
+  const mins = Math.floor(total / 60);
+  const secs = total % 60;
   if (mins === 0) return `${secs}sec`;
   return `${mins}m ${secs}sec`;
 }

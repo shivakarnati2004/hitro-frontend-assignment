@@ -46,7 +46,7 @@
 }
 
 .start-call-btn:hover {
-  background: #2a2a35;
+  background: var(--color-upgrade-btn-hover);
   transform: translateY(-1px);
 }
 
@@ -67,17 +67,17 @@
   align-items: center;
   justify-content: space-between;
   padding: 12px 16px;
-  background: #fef2f2;
-  border: 1px solid #fecaca;
+  background: var(--color-danger-bg);
+  border: 1px solid var(--color-danger-border);
   border-radius: var(--radius-md);
   font-size: 13.5px;
-  color: #dc2626;
+  color: var(--color-danger);
   gap: 12px;
 }
 
 .error-banner button {
   padding: 5px 12px;
-  background: #dc2626;
+  background: var(--color-danger);
   color: white;
   border-radius: var(--radius-sm);
   font-size: 12px;

@@ -13,6 +13,13 @@
   --color-white: #ffffff;
   --color-success: #16a34a;
   --color-upgrade-btn: #3d3d4a;
+  --color-upgrade-btn-hover: #2a2a35;
+  --color-danger: #dc2626;
+  --color-danger-bg: #fef2f2;
+  --color-danger-border: #fecaca;
+  --color-success-bg: #dcfce7;
+  --color-star: #f59e0b;
+  --color-star-muted: #d1d5db;
 
   /* Stat card icon backgrounds */
   --color-stat-orange: #fff3ed;

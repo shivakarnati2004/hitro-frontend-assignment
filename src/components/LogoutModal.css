@@ -75,5 +75,5 @@
 }
 
 .modal-btn.logout:hover {
-  background: #2a2a35;
+  background: var(--color-upgrade-btn-hover);
 }

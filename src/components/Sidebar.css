@@ -108,7 +108,7 @@
   font-size: 11px;
   color: var(--color-success);
   font-weight: 500;
-  background: #dcfce7;
+  background: var(--color-success-bg);
   padding: 2px 8px;
   border-radius: var(--radius-full);
 }
@@ -156,7 +156,7 @@
 }
 
 .sidebar-upgrade-btn:hover {
-  background: #2a2a35;
+  background: var(--color-upgrade-btn-hover);
 }
 
 .sidebar-footer {

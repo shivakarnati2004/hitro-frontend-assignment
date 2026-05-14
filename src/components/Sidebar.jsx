@@ -11,7 +11,7 @@ const NAV_ITEMS = [
   { id: 'boxy-controls', label: 'Boxy Controls', icon: BoxyControlsIcon, hasInfo: true },
 ];
 
-export default function Sidebar({ subscription, usage }) {
+export default function Sidebar({ subscription, usage, isOpen, onClose }) {
   const { activeNav, setActiveNav, setShowLogoutModal } = useApp();
   const [showFeedback, setShowFeedback] = useState(false);
 
@@ -20,7 +20,7 @@ export default function Sidebar({ subscription, usage }) {
 
   return (
     <>
-      <aside className="sidebar">
+      <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
         <div className="sidebar-logo">
           <LogoIcon />
           <span className="sidebar-logo-text">Hintro</span>
