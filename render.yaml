@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: hintro-dashboard
+    env: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: VITE_API_BASE_URL
+        value: https://mock-backend-hintro.vercel.app
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

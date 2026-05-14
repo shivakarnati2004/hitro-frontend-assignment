@@ -63,6 +63,19 @@ npm run build
 npm run preview    # Preview the production build locally
 ```
 
+### Deployment (Render Free Tier)
+
+This repository includes a `render.yaml` Blueprint file for seamless 1-click deployment on [Render](https://render.com) using their free Static Site tier.
+
+1. Create an account on Render.com
+2. Go to the **Dashboard** and click **New +** > **Blueprint**
+3. Connect your GitHub repository
+4. Render will automatically detect the `render.yaml` file and deploy the application.
+   - **Environment:** `static`
+   - **Build Command:** `npm install && npm run build`
+   - **Publish Directory:** `./dist`
+   - SPA routing is automatically handled via rewrite rules.
+
 ---
 
 ## 🏗️ Project Architecture
