@@ -46,17 +46,10 @@ export default function Sidebar({ subscription, usage, isOpen, onClose }) {
         </nav>
 
         <div className="sidebar-bottom">
-          {!subscription ? (
-            <button className="sidebar-nav-item" onClick={() => {}}>
-              <span className="sidebar-nav-icon"><DownloadIcon /></span>
-              <span className="sidebar-nav-label">Download Desktop App</span>
-            </button>
-          ) : (
-            <button className="sidebar-nav-item" onClick={() => setActiveNav('feedback-history')}>
-              <span className="sidebar-nav-icon"><FeedbackHistoryIcon /></span>
-              <span className="sidebar-nav-label">Feedback History</span>
-            </button>
-          )}
+          <button className="sidebar-nav-item" onClick={() => setActiveNav('feedback-history')}>
+            <span className="sidebar-nav-icon"><FeedbackHistoryIcon /></span>
+            <span className="sidebar-nav-label">Feedback History</span>
+          </button>
 
           <button className="sidebar-nav-item" onClick={() => setShowFeedback(true)}>
             <span className="sidebar-nav-icon"><GiftIcon /></span>
@@ -90,17 +83,9 @@ export default function Sidebar({ subscription, usage, isOpen, onClose }) {
   );
 }
 
-/* ---- SVG Icon Components ---- */
-function LogoIcon() {
-  return (
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-      <rect width="28" height="28" rx="8" fill="var(--color-primary)" />
-      <path d="M8 9h4v10H8zM16 9h4v10h-4z" fill="white" opacity="0.9" />
-      <rect x="12" y="12" width="4" height="4" rx="1" fill="white" />
-    </svg>
-  );
-}
+/* ---- SVG Icon Components matching Figma exactly ---- */
 
+/* Dashboard: 4-square grid icon */
 function DashboardIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -112,46 +97,50 @@ function DashboardIcon() {
   );
 }
 
+/* Call Insights: people/contacts icon */
 function CallInsightsIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <path d="M3 14s0-5 3.5-5S10 14 10 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      <circle cx="6.5" cy="6" r="2.5" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M11 7s1 1 1 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      <circle cx="11" cy="4.5" r="1.5" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M6 7a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" stroke="currentColor" strokeWidth="1.4" />
+      <path d="M1 14c0-2.5 2.2-4 5-4s5 1.5 5 4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+      <path d="M11 4.5a2 2 0 110 4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+      <path d="M13 10.5c1.2.6 2 1.6 2 3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
     </svg>
   );
 }
 
+/* Knowledge Base: document/file icon */
 function KnowledgeBaseIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <path d="M3 2h7l3 3v9H3z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
-      <path d="M10 2v3h3" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
-      <path d="M6 8h5M6 11h3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M4 2h5.5L13 5.5V13a1 1 0 01-1 1H4a1 1 0 01-1-1V3a1 1 0 011-1z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
+      <path d="M9 2v4h4" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
+      <path d="M6 8h5M6 11h3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
     </svg>
   );
 }
 
+/* Prompts: chat bubble / message icon */
 function PromptsIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <path d="M2 3h12v8H2z" rx="1.5" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
-      <path d="M5 13h6M8 11v2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M5 7l2 2 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M2 3a1 1 0 011-1h10a1 1 0 011 1v7a1 1 0 01-1 1H5l-3 3V3z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
+      <path d="M5 6h6M5 8.5h4" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
     </svg>
   );
 }
 
+/* Boxy Controls: settings/gear icon */
 function BoxyControlsIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <circle cx="8" cy="8" r="2.5" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.05 3.05l1.41 1.41M11.54 11.54l1.41 1.41M11.54 3.05l-1.41 1.41M3.05 11.54l1.41 1.41" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <circle cx="8" cy="8" r="2.5" stroke="currentColor" strokeWidth="1.4" />
+      <path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.05 3.05l1.41 1.41M11.54 11.54l1.41 1.41M11.54 3.05l-1.41 1.41M3.05 11.54l1.41 1.41" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
     </svg>
   );
 }
 
+/* Info (ⓘ) icon */
 function InfoIcon() {
   return (
     <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -161,6 +150,7 @@ function InfoIcon() {
   );
 }
 
+/* Feedback History: clock icon */
 function FeedbackHistoryIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -170,6 +160,7 @@ function FeedbackHistoryIcon() {
   );
 }
 
+/* Feedback: gift icon */
 function GiftIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -180,13 +171,3 @@ function GiftIcon() {
     </svg>
   );
 }
-
-function DownloadIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <path d="M8 2v8M5 7l3 3 3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M3 12v1.5a1 1 0 001 1h8a1 1 0 001-1V12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-    </svg>
-  );
-}
-
