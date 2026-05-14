@@ -1,122 +1,242 @@
-# Hintro Dashboard
+<h1 align="center">
+  Hintro Dashboard
+</h1>
 
-A pixel-faithful, responsive dashboard implementation for the Hintro Frontend Internship Assignment.
+<p align="center">
+  <strong>A pixel-perfect, responsive React dashboard built for the Hintro Frontend Assignment.</strong>
+</p>
 
-## 🔗 Live Demo
-> Deploy to Vercel / Netlify after pushing to GitHub.
+<p align="center">
+  <img src="https://img.shields.io/badge/React-18.2-61DAFB?logo=react&logoColor=white" alt="React" />
+  <img src="https://img.shields.io/badge/Vite-5.1-646CFF?logo=vite&logoColor=white" alt="Vite" />
+  <img src="https://img.shields.io/badge/CSS-Variables-1572B6?logo=css3&logoColor=white" alt="CSS" />
+  <img src="https://img.shields.io/badge/API-Mock Backend-green" alt="API" />
+</p>
 
-## 🛠 Tech Stack
+---
 
-| Technology | Purpose |
-|------------|---------|
-| **React 18** | UI framework |
-| **Vite 5** | Build tool & dev server |
-| **CSS Variables** | Global theming (no hardcoded colors) |
-| **Fetch API** | API integration |
-| **localStorage** | Feedback persistence |
+## 📋 Overview
 
-## 📦 Setup & Run
+This project implements the **Hintro Dashboard** frontend, faithfully reproducing the provided Figma design with full API integration, responsive layouts, and production-grade code architecture.
+
+### Key Highlights
+
+- **Pixel-perfect Figma implementation** — every component, spacing, icon, and color matches the design
+- **Two-user state system** — toggle between `u1` (empty/new user) and `u2` (active user with data)
+- **Zero hardcoded colors** — entire theme powered by CSS custom properties in a single design token file
+- **Live API integration** — all data fetched from the Hintro mock backend, nothing hardcoded
+- **Responsive design** — 4 breakpoints (1024px, 768px, 600px, 400px) for desktop → mobile
+- **Smooth micro-animations** — fade-in, scale-in, shimmer loading skeletons, hover transitions
+
+---
+
+## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js 18+
-- npm 9+
 
-### Install dependencies
+- **Node.js** ≥ 18.x
+- **npm** ≥ 9.x
+
+### Installation
+
 ```bash
+# Clone the repository
+git clone https://github.com/shivakarnati2004/hitro-frontend-assignment.git
+cd hitro-frontend-assignment
+
+# Install dependencies
 npm install
-```
 
-### Start development server
-```bash
+# Create environment file
+cp .env.example .env
+
+# Start development server
 npm run dev
 ```
-App runs at `http://localhost:5173`
 
-### Build for production
+The app will be available at **http://localhost:5173/**
+
+### Build for Production
+
 ```bash
 npm run build
-npm run preview
-```
-
-## 🔑 User States
-
-Switch between users using the toggle in the **header**:
-
-| User | State | Description |
-|------|-------|-------------|
-| `u1` | Empty | New user — shows "How it works" onboarding and empty call list |
-| `u2` | Active | Active user — shows real stats, recent calls with dates |
-
-All data is fetched live from the mock API. **No hardcoded dashboard data.**
-
-## 🌐 API Integration
-
-Base URL: `https://mock-backend-hintro.vercel.app`
-
-| Endpoint | Description |
-|----------|-------------|
-| `GET /api/auth/profile` | User profile |
-| `GET /api/auth/dashboard` | Subscription & usage |
-| `GET /api/call-sessions/stats` | Session stats |
-| `GET /api/call-sessions?limit=N` | Call history |
-
-All requests include `x-user-id: u1|u2` header.
-
-## 📱 Responsiveness
-
-- **Desktop** (>768px): Full sidebar + multi-column stats grid
-- **Tablet** (≤768px): Collapsible sidebar with overlay
-- **Mobile** (≤600px): 2-column stats grid, compact layout
-- **Small mobile** (≤400px): Single column layout
-
-## ✨ Features
-
-- ✅ Dashboard with real-time stats (Total Sessions, Average Duration, AI Used, Last Session)
-- ✅ Recent calls grouped by date with 3-dot context menu
-- ✅ Empty state for u1 (How it works onboarding + No Recent Calls)
-- ✅ Logout modal ("Leaving already?")
-- ✅ Feedback modal with star rating — saved to localStorage
-- ✅ Subscription/usage info in sidebar
-- ✅ User switcher in header for easy demo
-- ✅ Loading skeletons during API fetch
-- ✅ Error state with retry button
-- ✅ Consistent CSS variables — zero hardcoded colors
-- ✅ Smooth transitions and hover states
-
-## 📐 Assumptions & Notes
-
-1. **User Switcher**: Added a visible u1/u2 toggle in the header for easy evaluation — in a real app this would be replaced with actual auth.
-2. **Time format**: `averageDuration` from the API is in seconds → displayed as `Xm Ysec` as shown in the Figma.
-3. **Last Session**: Taken from the first element of `lastSession[]` array, formatted as relative time ("2 days ago").
-4. **Call avatars**: Color is deterministically derived from client name for visual consistency.
-5. **Feedback**: Stored in `localStorage` under key `hintro_feedback` as a JSON array.
-6. **Navigation**: Only Dashboard is fully implemented; other nav items are structural placeholders.
-7. **Fonts**: Using DM Sans (clean, modern sans-serif) to match the Figma aesthetic.
-
-## 📁 Project Structure
-
-```
-src/
-├── components/
-│   ├── Sidebar.jsx / .css
-│   ├── Header.jsx / .css
-│   ├── StatCard.jsx / .css
-│   ├── RecentCalls.jsx / .css
-│   ├── HowItWorks.jsx / .css
-│   ├── LogoutModal.jsx / .css
-│   └── FeedbackModal.jsx / .css
-├── context/
-│   └── AppContext.jsx
-├── pages/
-│   └── Dashboard.jsx / .css
-├── services/
-│   └── api.js
-├── utils/
-│   └── format.js
-├── App.jsx / .css
-├── index.css
-└── main.jsx
+npm run preview    # Preview the production build locally
 ```
 
 ---
-Made with ❤️ for Hintro Internship Assignment
+
+## 🏗️ Project Architecture
+
+```
+src/
+├── main.jsx                    # Application entry point
+├── App.jsx                     # Root layout — sidebar + header + content
+├── App.css                     # Root layout styles
+├── index.css                   # 🎨 Design tokens (CSS variables, animations, global resets)
+│
+├── context/
+│   └── AppContext.jsx          # Global state — user ID, active nav, modal toggles
+│
+├── pages/
+│   ├── Dashboard.jsx           # Main dashboard page — stats, calls, "How it works"
+│   └── Dashboard.css           # Dashboard page styles
+│
+├── components/
+│   ├── Sidebar.jsx / .css      # Navigation sidebar with user-conditional bottom section
+│   ├── Header.jsx / .css       # Top header — title, user switcher, avatar dropdown
+│   ├── StatCard.jsx / .css     # Reusable stat card (Total Sessions, Duration, etc.)
+│   ├── RecentCalls.jsx / .css  # Call list with grouped dates, avatars, 3-dot menu
+│   ├── HowItWorks.jsx / .css   # Onboarding 3-step cards (empty state only)
+│   ├── LogoutModal.jsx / .css  # Confirmation modal for logging out
+│   └── FeedbackModal.jsx / .css# 3-step feedback flow (stars → text → thanks)
+│
+├── services/
+│   └── api.js                  # Centralized API client with x-user-id header
+│
+└── utils/
+    └── format.js               # Date/time/duration formatting utilities
+```
+
+---
+
+## 🎨 Design System
+
+All colors, typography, spacing, shadows, and radii are defined as **CSS custom properties** in [`src/index.css`](src/index.css). **No hardcoded hex values exist** in any component or CSS file.
+
+| Token Category | Examples |
+|---|---|
+| **Colors** | `--color-primary`, `--color-text-primary`, `--color-bg` |
+| **Stat Cards** | `--color-stat-orange`, `--color-stat-teal`, `--color-stat-green`, `--color-stat-purple` |
+| **Avatars** | `--color-avatar-1` through `--color-avatar-6` |
+| **Typography** | `--font-sans` (DM Sans), `--font-serif` (Instrument Serif) |
+| **Spacing** | `--sidebar-width`, `--header-height` |
+| **Shadows** | `--shadow-card`, `--shadow-modal` |
+| **Radii** | `--radius-sm`, `--radius-md`, `--radius-lg`, `--radius-xl`, `--radius-full` |
+
+---
+
+## 🔌 API Integration
+
+All data is fetched from the **Hintro Mock Backend**:
+
+```
+Base URL: https://mock-backend-hintro.vercel.app
+```
+
+| Endpoint | Purpose | Header |
+|---|---|---|
+| `GET /api/auth/profile` | User profile (name, email) | `x-user-id: u1 \| u2` |
+| `GET /api/auth/dashboard` | Subscription & usage data | `x-user-id: u1 \| u2` |
+| `GET /api/call-sessions/stats` | Aggregate statistics | `x-user-id: u1 \| u2` |
+| `GET /api/call-sessions?limit=20` | Call history list | `x-user-id: u1 \| u2` |
+
+### User States
+
+| User | Name | State | Sidebar |
+|---|---|---|---|
+| `u1` | John Doe | Empty — 0 sessions, no calls | Usage bar, "How it works", footer |
+| `u2` | Jane Smith | Active — random data on each call | Feedback History, call list |
+
+### Data Formatting
+
+| API Field | Raw Value | Displayed As |
+|---|---|---|
+| `averageDuration` | `862` (seconds) | `14m 22sec` |
+| `lastSession[0]` | `2026-05-09T07:05:53Z` | `5 days ago` |
+| `started_at` | `2026-05-08T11:00:00Z` | `11:00 am` |
+| Date grouping | ISO timestamps | `May 8th`, `April 29th` |
+
+---
+
+## ✨ Features
+
+### Core Functionality
+- ✅ **User Switcher** — toggle between u1/u2 via header pills
+- ✅ **Stat Cards** — Total Sessions, Average Duration, AI Used, Last Session
+- ✅ **Recent Calls** — grouped by date with colored avatars and participant icons
+- ✅ **How It Works** — onboarding 3-step flow for empty users
+- ✅ **Empty States** — graceful UI for zero data (stats show "0", "-")
+
+### Interactions
+- ✅ **Logout Modal** — "Leaving already?" confirmation with Cancel/Log out
+- ✅ **Feedback Modal** — 3-step flow: star rating → text input → thank you
+- ✅ **Feedback Persistence** — stored in `localStorage` under `hintro_feedback`
+- ✅ **Avatar Dropdown** — click profile icon to reveal "Log out" option
+- ✅ **Call Menu** — 3-dot menu with View Details, View Transcript, Delete
+
+### Polish
+- ✅ **Loading Skeletons** — shimmer animations while data loads
+- ✅ **Fade-in Animations** — content appears with smooth transitions
+- ✅ **Hover States** — every interactive element has visual feedback
+- ✅ **Responsive** — adapts from desktop (1440px+) to mobile (320px)
+
+---
+
+## 📱 Responsive Breakpoints
+
+| Breakpoint | Layout Changes |
+|---|---|
+| **≤ 1024px** | Stat cards compress, smaller font sizes |
+| **≤ 768px** | Sidebar collapses to hamburger menu, tutorial button hidden |
+| **≤ 600px** | Stats become 2×2 grid, padding reduces |
+| **≤ 400px** | Stats become single column |
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology | Purpose |
+|---|---|
+| **React 18** | UI framework with functional components and hooks |
+| **Vite 5** | Build tool and dev server |
+| **CSS Custom Properties** | Theming and design tokens |
+| **Context API** | Global state management (no external deps) |
+| **Fetch API** | HTTP client for mock backend |
+| **localStorage** | Feedback data persistence |
+
+---
+
+## 📂 Environment Variables
+
+```env
+VITE_API_BASE_URL=https://mock-backend-hintro.vercel.app
+```
+
+Copy `.env.example` to `.env` before running. The default value is already configured.
+
+---
+
+## 📜 Scripts
+
+| Command | Description |
+|---|---|
+| `npm run dev` | Start Vite dev server with HMR |
+| `npm run build` | Production build to `dist/` |
+| `npm run preview` | Serve the production build locally |
+
+---
+
+## 🧪 Testing Checklist
+
+- [x] u2 (Active): Stats show data, recent calls with dates/times
+- [x] u1 (Empty): Stats show 0/0/0/-, "How it works" section, empty call state
+- [x] User switching updates all data via API
+- [x] Avatar dropdown shows "Log out" only
+- [x] Logout modal with correct text and Cancel/Log out buttons
+- [x] Feedback modal: star rating → text → thank you → localStorage
+- [x] Responsive: sidebar collapses on mobile, stats reflow
+- [x] Zero hardcoded colors — all via CSS variables
+- [x] Time formatting matches Figma: "Xm Ysec", "X days ago", "11:00 am"
+- [x] Production build succeeds (`npm run build`)
+
+---
+
+## 📄 License
+
+MIT — see [LICENSE](LICENSE) for details.
+
+---
+
+<p align="center">
+  Built with ❤️ for the Hintro Frontend Assignment
+</p>

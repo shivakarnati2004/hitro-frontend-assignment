@@ -84,13 +84,8 @@
 }
 
 .participant-dot {
-  font-size: 11px;
-  opacity: 0.5;
-}
-
-.call-client {
-  font-size: 12px;
-  color: var(--color-text-muted);
+  display: inline-flex;
+  align-items: center;
 }
 
 .call-time {
