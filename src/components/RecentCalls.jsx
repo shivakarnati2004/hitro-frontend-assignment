@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { groupCallsByDate, formatTime, getInitials } from '../utils/format';
 import './RecentCalls.css';
 
-// Color palette for call avatars
+// Color palette for call avatars — uses theme-compatible palette
 const AVATAR_COLORS = [
-  '#6B47DC', '#0d9488', '#f97316', '#e11d48', '#2563eb', '#7c3aed',
+  'var(--color-avatar-1)', 'var(--color-avatar-2)', 'var(--color-avatar-3)',
+  'var(--color-avatar-4)', 'var(--color-avatar-5)', 'var(--color-avatar-6)',
 ];
 
 function getColor(str) {
@@ -79,8 +80,8 @@ export default function RecentCalls({ calls, loading }) {
                       {session.participants?.map((p, i) => (
                         <span key={i} className="participant-dot" title={p.name}>
                           <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                            <circle cx="7" cy="7" r="6" fill="#e5e7eb" stroke="#fff" strokeWidth="1"/>
-                            <path d="M7 6a2 2 0 100-4 2 2 0 000 4zM3 11c0-2 2-3 4-3s4 1 4 3v1H3v-1z" fill="#9ca3af"/>
+                            <circle cx="7" cy="7" r="6" fill="var(--color-border)" stroke="var(--color-white)" strokeWidth="1"/>
+                            <path d="M7 6a2 2 0 100-4 2 2 0 000 4zM3 11c0-2 2-3 4-3s4 1 4 3v1H3v-1z" fill="var(--color-text-muted)"/>
                           </svg>
                         </span>
                       ))}

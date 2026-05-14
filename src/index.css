@@ -31,6 +31,18 @@
   --color-stat-purple: #f0ebfd;
   --color-stat-purple-icon: #7c3aed;
 
+  /* Avatar palette */
+  --color-avatar-1: #6B47DC;
+  --color-avatar-2: #0d9488;
+  --color-avatar-3: #f97316;
+  --color-avatar-4: #e11d48;
+  --color-avatar-5: #2563eb;
+  --color-avatar-6: #7c3aed;
+
+  /* Skeleton loading */
+  --color-skeleton-base: #f0f0f4;
+  --color-skeleton-highlight: #e8e8ee;
+
   /* Typography */
   --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-serif: 'Instrument Serif', Georgia, serif;
@@ -120,7 +132,7 @@ input, textarea {
 
 /* Skeleton loading */
 .skeleton {
-  background: linear-gradient(90deg, #f0f0f4 25%, #e8e8ee 50%, #f0f0f4 75%);
+  background: linear-gradient(90deg, var(--color-skeleton-base) 25%, var(--color-skeleton-highlight) 50%, var(--color-skeleton-base) 75%);
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
   border-radius: var(--radius-sm);
