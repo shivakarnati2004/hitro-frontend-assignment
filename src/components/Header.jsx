@@ -47,25 +47,15 @@ export default function Header({ profile, onMenuToggle }) {
             onClick={() => setShowUserMenu((v) => !v)}
           >
             <div className="header-avatar">
-              {initials}
+              <img src={`https://ui-avatars.com/api/?name=${profile?.firstName || 'User'}&background=random`} alt="User avatar" style={{ width: '100%', height: '100%', borderRadius: '50%', objectFit: 'cover' }} />
             </div>
             <ChevronIcon />
           </button>
 
           {showUserMenu && (
             <div className="header-dropdown" onMouseLeave={() => setShowUserMenu(false)}>
-              <div className="header-dropdown-user">
-                <div className="header-avatar sm">{initials}</div>
-                <div>
-                  <p className="dropdown-name">
-                    {profile ? `${profile.firstName} ${profile.lastName}` : '—'}
-                  </p>
-                  <p className="dropdown-email">{profile?.email ?? '—'}</p>
-                </div>
-              </div>
-              <hr className="dropdown-divider" />
               <button
-                className="dropdown-item logout"
+                className="dropdown-item"
                 onClick={() => { setShowUserMenu(false); setShowLogoutModal(true); }}
               >
                 <LogOutIcon /> Log out

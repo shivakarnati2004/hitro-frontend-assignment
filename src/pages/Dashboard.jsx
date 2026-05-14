@@ -51,10 +51,10 @@ export default function Dashboard() {
 
   // Format stats for display
   const totalSessions = stats?.totalSessions ?? 0;
-  const avgDuration = formatDuration(stats?.averageDuration ?? 0);
+  const avgDuration = stats?.averageDuration ? formatDuration(stats.averageDuration) : '0';
   const aiUsed = stats?.totalAIInteractions ?? 0;
   const lastSession = getLastSessionDate(stats?.lastSession);
-  const lastSessionDisplay = lastSession ? formatRelativeTime(lastSession) : '—';
+  const lastSessionDisplay = lastSession ? formatRelativeTime(lastSession) : '-';
 
   return (
     <main className="dashboard">
@@ -62,9 +62,9 @@ export default function Dashboard() {
       <div className="dashboard-welcome">
         <div className="dashboard-welcome-text">
           <h2 className="welcome-heading">
-            Hi, {firstName || (loading ? '...' : 'there')} 👋 Welcome to Hintro
+            Hi, {firstName ? firstName : '{{Name}}'} 👋 Welcome to Hintro
           </h2>
-          <p className="welcome-sub">Ready to make your next call smarter?</p>
+          <p className="welcome-sub">Ready to make your next call smarter ?</p>
         </div>
         <button className="start-call-btn">Start New Call</button>
       </div>
@@ -108,8 +108,8 @@ export default function Dashboard() {
         />
       </div>
 
-      {/* How it works (u1 empty) or Recent calls (u2) */}
-      {!loading && isEmptyUser ? (
+      {/* How it works - only for u1 (empty user with no subscription) */}
+      {!loading && isEmptyUser && !data.subscription ? (
         <HowItWorks />
       ) : null}
 

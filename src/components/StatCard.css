@@ -1,20 +1,21 @@
 .stat-card {
-  background: var(--color-card-bg);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  background: transparent;
   padding: 20px;
   display: flex;
   align-items: center;
   gap: 16px;
   flex: 1;
   min-width: 180px;
-  box-shadow: var(--shadow-card);
-  transition: box-shadow 0.2s, transform 0.2s;
+  border-right: 1px solid var(--color-border);
+  transition: background 0.2s;
+}
+
+.stat-card:last-child {
+  border-right: none;
 }
 
 .stat-card:hover {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transform: translateY(-1px);
+  background: var(--color-bg);
 }
 
 .stat-icon {
@@ -81,6 +82,12 @@
   .stat-card {
     padding: 14px;
     gap: 12px;
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .stat-card:last-child {
+    border-bottom: none;
   }
 
   .stat-icon {

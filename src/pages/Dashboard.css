@@ -57,8 +57,12 @@
 /* Stats */
 .stats-grid {
   display: flex;
-  gap: 16px;
+  gap: 0;
   flex-wrap: wrap;
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
 }
 
 /* Error banner */
@@ -112,7 +116,7 @@
   .stats-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    gap: 0;
   }
 }
 

@@ -5,15 +5,15 @@ const STEPS = [
   {
     number: 'STEP 1',
     icon: <UploadIcon />,
-    title: 'Upload your files',
-    description: 'Add files for your meetings and meetings with Hintro',
+    title: 'Upload Files',
+    description: 'Add files for context so Hintro knows what to look for in your meetings',
     action: 'Upload Files',
   },
   {
     number: 'STEP 2',
     icon: <CallIcon />,
     title: 'Start a Call',
-    description: 'Begin your AI-powered meeting session anytime',
+    description: 'Run Hintro during your Google Meet or Zoom call to capture everything',
     action: 'Start a Call',
   },
   {

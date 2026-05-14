@@ -12,6 +12,7 @@
   color: var(--color-text-primary);
   padding: 20px 24px 16px;
   border-bottom: 1px solid var(--color-border);
+  text-align: center;
 }
 
 .steps-grid {

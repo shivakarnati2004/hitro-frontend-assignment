@@ -78,10 +78,12 @@ export default function RecentCalls({ calls, loading }) {
                     <div className="call-participants">
                       {session.participants?.map((p, i) => (
                         <span key={i} className="participant-dot" title={p.name}>
-                          👤
+                          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                            <circle cx="7" cy="7" r="6" fill="#e5e7eb" stroke="#fff" strokeWidth="1"/>
+                            <path d="M7 6a2 2 0 100-4 2 2 0 000 4zM3 11c0-2 2-3 4-3s4 1 4 3v1H3v-1z" fill="#9ca3af"/>
+                          </svg>
                         </span>
                       ))}
-                      <span className="call-client">{session.client}</span>
                     </div>
                   </div>
                   <span className="call-time">{formatTime(session.started_at)}</span>

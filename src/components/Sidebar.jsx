@@ -22,7 +22,6 @@ export default function Sidebar({ subscription, usage, isOpen, onClose }) {
     <>
       <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
         <div className="sidebar-logo">
-          <LogoIcon />
           <span className="sidebar-logo-text">Hintro</span>
         </div>
 
@@ -47,21 +46,24 @@ export default function Sidebar({ subscription, usage, isOpen, onClose }) {
         </nav>
 
         <div className="sidebar-bottom">
-          <button className="sidebar-nav-item" onClick={() => setActiveNav('feedback-history')}>
-            <span className="sidebar-nav-icon"><FeedbackHistoryIcon /></span>
-            <span className="sidebar-nav-label">Feedback History</span>
-          </button>
+          {!subscription ? (
+            <button className="sidebar-nav-item" onClick={() => {}}>
+              <span className="sidebar-nav-icon"><DownloadIcon /></span>
+              <span className="sidebar-nav-label">Download Desktop App</span>
+            </button>
+          ) : (
+            <button className="sidebar-nav-item" onClick={() => setActiveNav('feedback-history')}>
+              <span className="sidebar-nav-icon"><FeedbackHistoryIcon /></span>
+              <span className="sidebar-nav-label">Feedback History</span>
+            </button>
+          )}
+
           <button className="sidebar-nav-item" onClick={() => setShowFeedback(true)}>
             <span className="sidebar-nav-icon"><GiftIcon /></span>
             <span className="sidebar-nav-label">Feedback</span>
           </button>
 
-          {subscription ? (
-            <div className="sidebar-plan-badge">
-              <span className="plan-name">{subscription.plan}</span>
-              <span className="plan-status">{subscription.status}</span>
-            </div>
-          ) : (
+          {!subscription && (
             <div className="sidebar-usage">
               <p className="sidebar-usage-text">
                 <strong>{hoursUsed} of {hoursLimit}</strong> hours used
@@ -77,7 +79,9 @@ export default function Sidebar({ subscription, usage, isOpen, onClose }) {
 
           <button className="sidebar-upgrade-btn">Upgrade</button>
 
-          <p className="sidebar-footer">© 2025 Hintro. Made in India 🇮🇳</p>
+          {!subscription && (
+            <p className="sidebar-footer">© 2025 Hintro. Made in India 🇮🇳</p>
+          )}
         </div>
       </aside>
 
@@ -176,3 +180,13 @@ function GiftIcon() {
     </svg>
   );
 }
+
+function DownloadIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <path d="M8 2v8M5 7l3 3 3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M3 12v1.5a1 1 0 001 1h8a1 1 0 001-1V12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
+  );
+}
+
