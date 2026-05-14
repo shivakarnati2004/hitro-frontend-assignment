@@ -244,6 +244,18 @@ Copy `.env.example` to `.env` before running. The default value is already confi
 
 ---
 
+## 📌 Assumptions & Notes
+
+While building the project, the following assumptions and design decisions were made to ensure a robust and production-ready implementation:
+
+1. **API Data Truth vs. Figma Mocks:** Where the API returns data that conflicts slightly with the Figma mockup (e.g., `limit` being `100` in the API vs `1000` in the image), the **API data is treated as the source of truth** to avoid hardcoding values. The UI automatically adapts to whatever the API returns.
+2. **Local Storage Feedback:** The feedback submitted through the modal is saved to the browser's `localStorage` under the key `hintro_feedback`. This simulates a successful POST request without requiring a real backend endpoint.
+3. **Avatar Initials:** The initials generated for the recent calls use a simple hashing algorithm on the client name to consistently generate the same background color for the same user, providing a stable visual experience.
+4. **Time & Date Formatting:** The backend returns raw ISO timestamps and durations in seconds. All formatting logic (e.g., "14m 22sec", "5 days ago") is isolated in utility functions (`src/utils/format.js`) to ensure UI consistency across all components.
+5. **Static Deployment:** The application does not require a Node.js server to run in production. It compiles down to pure HTML, CSS, and JS, making it perfectly suited for free-tier static hosting (like Render Static Sites or Vercel).
+
+---
+
 ## 📄 License
 
 MIT — see [LICENSE](LICENSE) for details.
